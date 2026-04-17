@@ -104,32 +104,6 @@ Key packages used (see `requirements.txt` for full list):
 
 ---
 
-## Known Issues / Fix Before Running
-
-There are two variable shadowing bugs in `pipeline.py` that need to be fixed:
-
-```python
-# ❌ Current (shadows the imported function)
-search_agent = search_agent()
-reader_agent = reader_agent()
-
-# ✅ Fix — rename local variables
-search_agent_instance = search_agent()
-reader_agent_instance = reader_agent()
-```
-
-Also fix the missing colon in the reader agent's message dict:
-
-```python
-# ❌ Current
-{"user" f"Extract the URLs..."}
-
-# ✅ Fix
-{"user": f"Extract the URLs..."}
-```
-
----
-
 ## How the Pipeline Works
 
 ```
@@ -158,21 +132,6 @@ topic (str)
        ▼
    state dict  →  returned to UI / printed to stdout
 ```
-
----
-
-## UI Overview
-
-The Streamlit app (`app.py`) provides:
-
-- Topic input with a one-click **Run** button
-- **Step tracker bar** — 4 pills animate green as each agent finishes
-- **Live progress bar** during pipeline execution
-- **4 output cards** — one per agent, clearly labelled
-- Critic output is visually distinguished with a purple accent border
-- Full error handling for import failures and runtime exceptions
-
----
 
 ## License
 
