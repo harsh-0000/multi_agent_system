@@ -111,7 +111,7 @@ topic (str)
     │
     ▼
 ┌─────────────┐
-│ Search Agent │  ← LangGraph agent with web search tool
+│ Search Agent │  ← LangChain agent with web search tool
 └──────┬──────┘
        │ search_results
        ▼
